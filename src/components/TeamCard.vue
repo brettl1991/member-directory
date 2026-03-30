@@ -6,10 +6,16 @@ const props = defineProps({
 <template>
   <article class="card">
     <div class="card-top">
-      <img :src="user.image" :alt="`${user.firstName} ${user.lastName}`" />
-      <div>
-        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
-        <p>@{{ user.username }}</p>
+      <img
+        class="card-image"
+        :src="user.image"
+        :alt="`${user.firstName} ${user.lastName}`"
+      />
+      <div class="card-text">
+        <h3 class="card-name-group">
+          {{ user.firstName }} {{ user.lastName }}
+        </h3>
+        <p class="card-username">@{{ user.username }}</p>
       </div>
     </div>
 
@@ -24,6 +30,6 @@ const props = defineProps({
       <p>{{ user.address?.city }}</p>
     </div>
 
-    <button type="button">View Profile</button>
+    <button type="button" class="card-button">View Profile</button>
   </article>
 </template>

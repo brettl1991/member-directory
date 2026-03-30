@@ -17,7 +17,7 @@ const fetchUsers = async () => {
     const resp = await fetch("https://dummyjson.com/users");
     if (!resp.ok) throw new Error("Failed to fetch users");
     const data = await resp.json();
-    console.log(data);
+    // console.log(data);
     users.value = data.users;
   } catch (err) {
     error.value = err.message;
@@ -44,7 +44,7 @@ const filteredUsers = computed(() => {
       <p v-if="loading">Loading team members...</p>
       <p v-else-if="error">Something went wrong. Please try again.</p>
       <p v-else-if="filteredUsers.length === 0">No team members found.</p>
-      <div v-else>
+      <div v-else class="team-grid">
         <TeamCard v-for="user in filteredUsers" :key="user.id" :user="user" />
       </div>
     </section>
