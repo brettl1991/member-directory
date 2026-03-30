@@ -40,6 +40,13 @@ const filteredUsers = computed(() => {
       <h2>{{ subTitle }}</h2>
     </header>
     <SearchBar :search="search" @update:search="search = $event" />
-    <TeamCard />
+    <section>
+      <p v-if="loading">Loading team members...</p>
+      <p v-else-if="error">Something went wrong. Please try again.</p>
+      <p v-else-if="filteredUsers.length === 0">No team members found.</p>
+      <div v-else>
+        <TeamCard v-for="user in filteredUsers" :key="user.id" :user="user" />
+      </div>
+    </section>
   </main>
 </template>

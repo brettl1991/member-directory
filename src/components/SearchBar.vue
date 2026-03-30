@@ -10,6 +10,8 @@ const emit = defineEmits(["update:search"]);
       <label for="search-input"
         >Search<input
           id="search-input"
+          name="search"
+          placeholder="Search by name"
           type="search"
           :value="search"
           @input="emit('update:search', $event.target.value)"
